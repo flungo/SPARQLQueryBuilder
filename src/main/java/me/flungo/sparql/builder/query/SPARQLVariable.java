@@ -6,12 +6,12 @@
  *
  * Created by Fabrizio Lungo <fab@lungo.co.uk>, October 2014
  */
-package me.flungo.sparql.builder;
+package me.flungo.sparql.builder.query;
 
 /**
  *
  * @author Fabrizio Lungo <fab@lungo.co.uk>
  */
-public class SPARQLQuery {
+public class SPARQLVariable {
 
 }

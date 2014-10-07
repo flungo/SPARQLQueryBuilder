@@ -8,6 +8,7 @@
  */
 package me.flungo.sparql.builder;
 
+import me.flungo.sparql.builder.query.SPARQLQuery;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
 
