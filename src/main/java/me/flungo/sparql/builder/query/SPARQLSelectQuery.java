@@ -9,21 +9,19 @@
 package me.flungo.sparql.builder.query;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
  *
  * @author Fabrizio Lungo <fab@lungo.co.uk>
  */
-public class SPARQLSelectQuery implements SPARQLQuery {
+public class SPARQLSelectQuery extends SPARQLQuery {
 
-    private boolean distinct = false;
-    private boolean reduced = false;
-    private final Set<SPARQLVariable> variables = new HashSet<SPARQLVariable>();
-    private final Set<SPARQLDatasetClause> datasetClauses = new HashSet<SPARQLDatasetClause>();
-    private SPARQLWhereClause whereClause = null;
-    private SPARQLSolutionModifier solutionModifier = null;
+    protected boolean distinct = false;
+    protected boolean reduced = false;
+    protected final Set<SPARQLVariable> variables = new LinkedHashSet<SPARQLVariable>();
+    protected SPARQLSolutionModifier solutionModifier = null;
 
     public void setDistinct(boolean distinct) {
         if (reduced) {
@@ -60,34 +58,6 @@ public class SPARQLSelectQuery implements SPARQLQuery {
         variables.clear();
     }
 
-    public boolean addDatasetClause(SPARQLDatasetClause e) {
-        return datasetClauses.add(e);
-    }
-
-    public boolean removeDatasetClause(Object o) {
-        return datasetClauses.remove(o);
-    }
-
-    public boolean addAllDatasetClauses(Collection<? extends SPARQLDatasetClause> c) {
-        return datasetClauses.addAll(c);
-    }
-
-    public boolean retainAllDatasetClauses(Collection<?> c) {
-        return datasetClauses.retainAll(c);
-    }
-
-    public boolean removeAllDatasetClauses(Collection<?> c) {
-        return datasetClauses.removeAll(c);
-    }
-
-    public void clearDatasetClauses() {
-        datasetClauses.clear();
-    }
-
-    public void setWhereClause(SPARQLWhereClause whereClause) {
-        this.whereClause = whereClause;
-    }
-
     public void setSolutionModifier(SPARQLSolutionModifier solutionModifier) {
         this.solutionModifier = solutionModifier;
     }
@@ -101,15 +71,7 @@ public class SPARQLSelectQuery implements SPARQLQuery {
     }
 
     public Set<SPARQLVariable> getVariables() {
-        return new HashSet<SPARQLVariable>(variables);
-    }
-
-    public Set<SPARQLDatasetClause> getDatasetClauses() {
-        return new HashSet<SPARQLDatasetClause>(datasetClauses);
-    }
-
-    public SPARQLWhereClause getWhereClause() {
-        return whereClause;
+        return new LinkedHashSet<SPARQLVariable>(variables);
     }
 
     public SPARQLSolutionModifier getSolutionModifier() {
