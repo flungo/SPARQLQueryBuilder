@@ -8,6 +8,7 @@
  */
 package me.flungo.sparql.builder.terminals;
 
+import me.flungo.sparql.builder.query.SPARQLDescribable;
 import org.apache.jena.iri.IRIException;
 import org.apache.jena.iri.IRIFactory;
 
@@ -15,7 +16,7 @@ import org.apache.jena.iri.IRIFactory;
  *
  * @author Fabrizio Lungo <fab@lungo.co.uk>
  */
-public class IRIRef {
+public class IRIRef implements SPARQLDescribable {
 
     static IRIFactory iriFactory = IRIFactory.semanticWebImplementation();
 

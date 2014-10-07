@@ -12,6 +12,6 @@ package me.flungo.sparql.builder.query;
  *
  * @author Fabrizio Lungo <fab@lungo.co.uk>
  */
-public class SPARQLVariable {
+public class SPARQLVariable implements SPARQLDescribable {
 
 }
