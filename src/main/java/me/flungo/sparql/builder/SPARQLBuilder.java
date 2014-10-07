@@ -8,9 +8,9 @@
  */
 package me.flungo.sparql.builder;
 
-import me.flungo.sparql.builder.query.SPARQLQuery;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
+import me.flungo.sparql.builder.query.SPARQLQuery;
 
 /**
  *
@@ -41,6 +41,9 @@ public class SPARQLBuilder {
         // Validate that a query can be produced
         if (query == null) {
             throw new IllegalStateException("No query to build");
+        }
+        if (!query.isValid()) {
+            throw new IllegalStateException("Query is not valid");
         }
         // Create the query
         return QueryFactory.create(toString());
